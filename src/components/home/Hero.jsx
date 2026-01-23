@@ -8,6 +8,7 @@ const Hero = () => {
   const titleRef = useRef(null)
   const subtextRef = useRef(null)
   const backgroundRef = useRef(null)
+  const videoRef = useRef(null)
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
@@ -43,7 +44,7 @@ const Hero = () => {
       scrollTriggers.push(titleTrigger.scrollTrigger)
     }
 
-    // Parallax background
+    // Parallax background (now affects video)
     if (backgroundRef.current && heroRef.current) {
       const bgTrigger = gsap.to(backgroundRef.current, {
         y: 300,
@@ -59,12 +60,13 @@ const Hero = () => {
     }
 
     // Cleanup
+    const heroElement = heroRef.current
     return () => {
       scrollTriggers.forEach((trigger) => {
         if (trigger) trigger.kill()
       })
       ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.vars.trigger === heroRef.current) {
+        if (trigger.vars.trigger === heroElement) {
           trigger.kill()
         }
       })
@@ -73,7 +75,20 @@ const Hero = () => {
 
   return (
     <section className="hero-section" ref={heroRef}>
-      <div className="hero-background" ref={backgroundRef} />
+      <div className="hero-background" ref={backgroundRef}>
+        <video
+          ref={videoRef}
+          className="hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        >
+          <source src="/videos/hero-background.mp4" type="video/mp4" />
+        </video>
+        <div className="hero-video-overlay" />
+      </div>
       <div className="container">
         <div className="hero-content">
           <h1 className="hero-title" ref={titleRef}>
@@ -91,4 +106,3 @@ const Hero = () => {
 }
 
 export default Hero
-

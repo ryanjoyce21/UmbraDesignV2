@@ -13,7 +13,64 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 120%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Ensure video covers full area regardless of aspect ratio */
+@media (min-aspect-ratio: 16/9) {
+  .hero-video {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .hero-video {
+    width: auto;
+    height: 100%;
+    min-width: 100%;
+  }
+}
+
+.hero-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(13, 13, 13, 0.7) 0%,
+    rgba(13, 13, 13, 0.5) 50%,
+    rgba(31, 66, 55, 0.6) 100%
+  );
+  z-index: 1;
+}
+
+/* Fallback gradient if video doesn't load */
+.hero-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(
     135deg,
     var(--color-bg-primary) 0%,
@@ -21,7 +78,7 @@
     var(--color-accent-muted) 100%
   );
   opacity: 0.3;
-  z-index: -1;
+  z-index: 0;
 }
 
 .hero-content {
@@ -29,6 +86,7 @@
   max-width: 900px;
   margin: 0 auto;
   z-index: 1;
+  position: relative;
 }
 
 .hero-title {
@@ -39,6 +97,7 @@
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-text-primary);
   margin-bottom: var(--space-6);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 1024px) {
@@ -51,9 +110,19 @@
   font-size: var(--font-size-lg);
   color: var(--color-text-secondary);
   line-height: var(--line-height-relaxed);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
+/* Optional: Disable video on mobile for performance */
 @media (max-width: 768px) {
+  .hero-video {
+    display: none;
+  }
+  
+  .hero-background::before {
+    opacity: 1;
+  }
+  
   .hero-title {
     font-size: var(--font-size-3xl);
   }
