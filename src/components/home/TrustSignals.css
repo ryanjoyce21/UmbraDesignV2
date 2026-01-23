@@ -1,0 +1,41 @@
+.trust-signals-section {
+  background-color: var(--color-bg-primary);
+}
+
+.trust-signals-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .trust-signals-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.trust-signal {
+  text-align: center;
+  padding: var(--space-6);
+}
+
+.trust-icon {
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
+  display: flex;
+  justify-content: center;
+}
+
+.trust-title {
+  font-weight: 500;
+  font-size: var(--font-size-xl);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.trust-description {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+

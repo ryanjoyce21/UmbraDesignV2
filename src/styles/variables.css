@@ -1,0 +1,81 @@
+/* PRIMARY PALETTE */
+:root {
+  --color-bg-primary: #0D0D0D;        /* Main background - deep charcoal */
+  --color-bg-secondary: #1A1A1A;      /* Cards, sections - lighter charcoal */
+  --color-bg-tertiary: #242424;       /* Hover states, borders */
+
+  /* TEXT COLORS */
+  --color-text-primary: #E8E8E8;      /* Main text - off-white */
+  --color-text-secondary: #888888;    /* Secondary text - mid-gray */
+  --color-text-tertiary: #666666;     /* Muted text - dark gray */
+
+  /* ACCENT COLOR */
+  --color-accent: #2D5C4A;            /* Forest green - primary accent */
+  --color-accent-hover: #3A7359;      /* Lighter forest green - hover state */
+  --color-accent-muted: #1F4237;      /* Darker forest green - backgrounds */
+
+  /* UTILITY COLORS */
+  --color-border: rgba(255, 255, 255, 0.08);  /* Subtle borders */
+  --color-overlay: rgba(0, 0, 0, 0.6);        /* Modal overlays */
+  --color-success: #4A9D5C;           /* Form success states */
+  --color-error: #D45C5C;             /* Form error states */
+
+  /* TYPOGRAPHY SCALE */
+  --font-size-xs: 0.75rem;      /* 12px - captions, labels */
+  --font-size-sm: 0.875rem;     /* 14px - small text */
+  --font-size-base: 1rem;       /* 16px - body text */
+  --font-size-lg: 1.125rem;     /* 18px - large body */
+  --font-size-xl: 1.5rem;       /* 24px - section subtitles */
+  --font-size-2xl: 2rem;        /* 32px - section titles */
+  --font-size-3xl: 3rem;        /* 48px - page titles */
+  --font-size-4xl: 4rem;        /* 64px - hero titles */
+  --font-size-5xl: 5rem;        /* 80px - massive hero (desktop only) */
+
+  /* LINE HEIGHTS */
+  --line-height-tight: 1.2;     /* Headings */
+  --line-height-normal: 1.5;    /* UI elements */
+  --line-height-relaxed: 1.7;   /* Body text */
+  --line-height-loose: 1.9;     /* Large body text */
+
+  /* LETTER SPACING */
+  --letter-spacing-tight: -0.02em;   /* Large headings */
+  --letter-spacing-normal: 0;        /* Body text */
+  --letter-spacing-wide: 0.05em;     /* Small caps, labels */
+
+  /* SPACING SYSTEM - 8px BASE UNIT */
+  --space-1: 0.5rem;   /* 8px */
+  --space-2: 1rem;     /* 16px */
+  --space-3: 1.5rem;   /* 24px */
+  --space-4: 2rem;     /* 32px */
+  --space-5: 2.5rem;   /* 40px */
+  --space-6: 3rem;     /* 48px */
+  --space-8: 4rem;     /* 64px */
+  --space-10: 5rem;    /* 80px */
+  --space-12: 6rem;    /* 96px */
+  --space-16: 8rem;    /* 128px */
+  --space-20: 10rem;   /* 160px */
+
+  /* SECTION PADDING */
+  --section-padding-mobile: var(--space-8);    /* 64px top/bottom on mobile */
+  --section-padding-desktop: var(--space-12);  /* 96px top/bottom on desktop */
+
+  /* CONTAINER WIDTHS */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1400px;  /* Max content width */
+
+  /* SHADOWS */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.7);
+
+  /* TRANSITIONS */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 250ms ease-in-out;
+  --transition-slow: 400ms ease-in-out;
+  --transition-smooth: 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+

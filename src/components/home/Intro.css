@@ -1,0 +1,23 @@
+.intro-section {
+  background-color: var(--color-bg-primary);
+}
+
+.intro-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .intro-text {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
