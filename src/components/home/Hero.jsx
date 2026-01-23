@@ -29,18 +29,22 @@ const Hero = () => {
         '-=0.6'
       )
 
-    // Scroll-reactive fade out
+    // Scroll-reactive fade out (with reverse on scroll up)
     if (titleRef.current && heroRef.current) {
-      const titleTrigger = gsap.to(titleRef.current, {
-        opacity: 0,
-        y: -100,
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-      })
+      const titleTrigger = gsap.fromTo(
+        titleRef.current,
+        { opacity: 1, y: 0 },
+        {
+          opacity: 0,
+          y: -100,
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+          },
+        }
+      )
       scrollTriggers.push(titleTrigger.scrollTrigger)
     }
 

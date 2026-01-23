@@ -36,10 +36,12 @@ export const projects = [
     category: 'Brochure',
     description: 'A sophisticated corporate website showcasing services, team, and company values with smooth animations.',
     longDescription: 'A premium brochure website that effectively communicates the company\'s brand and services. The design emphasizes clarity and professionalism while incorporating subtle interactive elements that engage visitors.',
-    image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: 'images/finance.jpg',
     images: [
+      'images/finance.jpg',
       'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1200',
       'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      
     ],
     tech: ['React', 'GSAP', 'Framer Motion'],
     year: '2023',
