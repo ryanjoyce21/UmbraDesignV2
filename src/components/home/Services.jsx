@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { staggerFadeIn } from '../../utils/scrollAnimations'
-import { Palette, ShoppingCart, Calendar } from 'lucide-react'
+import { Palette, ShoppingCart, Calendar,  } from 'lucide-react'
 import './Services.css'
 
 const Services = () => {
@@ -22,6 +22,11 @@ const Services = () => {
       title: 'Booking Systems',
       description: 'Streamlined booking platforms that make scheduling easy for your customers.',
     },
+    {
+      icon: Calendar,
+      title: 'Form Submission Systems',
+      description: 'Form submission systems that allow you to collect data from your customers.',
+    }
   ]
 
   useEffect(() => {

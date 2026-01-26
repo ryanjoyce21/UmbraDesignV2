@@ -15,7 +15,7 @@ const Intro = () => {
     <section className="intro-section section" ref={introRef}>
       <div className="container">
         <div className="intro-content">
-          <h2 className="section-title">We Build Websites That Work</h2>
+          <h2 className="section-title">We Bring your Business Into the Light</h2>
           <div className="intro-text">
             <p className="body-text">
               Umbra Design specializes in creating premium websites for Irish small and medium businesses. 
