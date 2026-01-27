@@ -1,23 +1,198 @@
+/* ═══════════════════════════════════════════════════════════
+   INTRO SECTION - Elegant Statement Design
+   ═══════════════════════════════════════════════════════════ */
+
 .intro-section {
   background-color: var(--color-bg-primary);
+  position: relative;
+  overflow: hidden;
 }
+
+/* Background Elements */
+.intro-gradient-orb {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, var(--color-accent-subtle) 0%, transparent 60%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.intro-line {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-border) 30%,
+    var(--color-border) 70%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+.intro-line-left {
+  left: 10%;
+}
+
+.intro-line-right {
+  right: 10%;
+}
+
+@media (max-width: 768px) {
+  .intro-line {
+    display: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CONTENT
+   ═══════════════════════════════════════════════════════════ */
 
 .intro-content {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
-.intro-text {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+.intro-content .section-label {
+  justify-content: center;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HEADLINE
+   ═══════════════════════════════════════════════════════════ */
+
+.intro-headline {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--font-size-4xl);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-8);
+}
+
+.headline-accent {
+  color: var(--color-emerald);
+  font-style: italic;
 }
 
 @media (min-width: 768px) {
-  .intro-text {
-    flex-direction: row;
+  .intro-headline {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DIVIDER
+   ═══════════════════════════════════════════════════════════ */
+
+.intro-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent) 50%,
+    transparent
+  );
+  margin: 0 auto var(--space-8);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   COLUMNS
+   ═══════════════════════════════════════════════════════════ */
+
+.intro-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+}
+
+@media (min-width: 768px) {
+  .intro-columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-10);
     text-align: left;
   }
 }
 
+.intro-text {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-loose);
+}
+
+@media (min-width: 768px) {
+  .intro-text {
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STATS
+   ═══════════════════════════════════════════════════════════ */
+
+.intro-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-8);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+  .intro-stats {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-10);
+  }
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: var(--font-size-4xl);
+  font-weight: 300;
+  color: var(--color-emerald);
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.stat-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--color-border);
+}
+
+@media (min-width: 768px) {
+  .stat-divider {
+    width: 1px;
+    height: 60px;
+  }
+}

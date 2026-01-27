@@ -1,81 +1,159 @@
-/* PRIMARY PALETTE */
+/* UMBRA DESIGN - AWARD-WINNING AESTHETIC SYSTEM */
+
 :root {
-  --color-bg-primary: #0D0D0D;        /* Main background - deep charcoal */
-  --color-bg-secondary: #1A1A1A;      /* Cards, sections - lighter charcoal */
-  --color-bg-tertiary: #242424;       /* Hover states, borders */
+  /* ═══════════════════════════════════════════════════════════
+     PRIMARY PALETTE - Deep, Moody, Forest-Inspired
+     ═══════════════════════════════════════════════════════════ */
 
-  /* TEXT COLORS */
-  --color-text-primary: #E8E8E8;      /* Main text - off-white */
-  --color-text-secondary: #888888;    /* Secondary text - mid-gray */
-  --color-text-tertiary: #666666;     /* Muted text - dark gray */
+  /* Backgrounds - Layered Depth */
+  --color-bg-primary: #080a09;           /* Deepest black with green undertone */
+  --color-bg-secondary: #0f1210;         /* Elevated surfaces */
+  --color-bg-tertiary: #171c19;          /* Cards, interactive elements */
+  --color-bg-elevated: #1e2622;          /* Hover states, highlights */
 
-  /* ACCENT COLOR */
-  --color-accent: #2D5C4A;            /* Forest green - primary accent */
-  --color-accent-hover: #3A7359;      /* Lighter forest green - hover state */
-  --color-accent-muted: #1F4237;      /* Darker forest green - backgrounds */
+  /* Text Hierarchy */
+  --color-text-primary: #f0f2f1;         /* Crisp white with warmth */
+  --color-text-secondary: #8a9490;       /* Muted sage gray */
+  --color-text-tertiary: #5a635e;        /* Subtle, decorative text */
+  --color-text-accent: #b8cfc2;          /* Light sage for emphasis */
 
-  /* UTILITY COLORS */
-  --color-border: rgba(255, 255, 255, 0.08);  /* Subtle borders */
-  --color-overlay: rgba(0, 0, 0, 0.6);        /* Modal overlays */
-  --color-success: #4A9D5C;           /* Form success states */
-  --color-error: #D45C5C;             /* Form error states */
+  /* Accent Colors - Forest Green Spectrum */
+  --color-accent: #3d8b6e;               /* Primary forest green */
+  --color-accent-hover: #4aa37f;         /* Luminous hover state */
+  --color-accent-muted: #264536;         /* Deep forest shadow */
+  --color-accent-glow: rgba(61, 139, 110, 0.4);  /* Glowing effect */
+  --color-accent-subtle: rgba(61, 139, 110, 0.08); /* Subtle background tint */
 
-  /* TYPOGRAPHY SCALE */
-  --font-size-xs: 0.75rem;      /* 12px - captions, labels */
-  --font-size-sm: 0.875rem;     /* 14px - small text */
-  --font-size-base: 1rem;       /* 16px - body text */
-  --font-size-lg: 1.125rem;     /* 18px - large body */
-  --font-size-xl: 1.5rem;       /* 24px - section subtitles */
-  --font-size-2xl: 2rem;        /* 32px - section titles */
-  --font-size-3xl: 3rem;        /* 48px - page titles */
-  --font-size-4xl: 4rem;        /* 64px - hero titles */
-  --font-size-5xl: 5rem;        /* 80px - massive hero (desktop only) */
+  /* Secondary Accent - Emerald Highlights */
+  --color-emerald: #50c98e;              /* Bright emerald for key moments */
+  --color-emerald-glow: rgba(80, 201, 142, 0.3);
 
-  /* LINE HEIGHTS */
-  --line-height-tight: 1.2;     /* Headings */
-  --line-height-normal: 1.5;    /* UI elements */
-  --line-height-relaxed: 1.7;   /* Body text */
-  --line-height-loose: 1.9;     /* Large body text */
+  /* Atmospheric Colors */
+  --color-mist: rgba(184, 207, 194, 0.03);  /* Subtle atmospheric haze */
+  --color-shadow-green: rgba(38, 69, 54, 0.5);
 
-  /* LETTER SPACING */
-  --letter-spacing-tight: -0.02em;   /* Large headings */
-  --letter-spacing-normal: 0;        /* Body text */
-  --letter-spacing-wide: 0.05em;     /* Small caps, labels */
+  /* Utility Colors */
+  --color-border: rgba(61, 139, 110, 0.12);     /* Subtle green-tinted borders */
+  --color-border-hover: rgba(61, 139, 110, 0.3);
+  --color-overlay: rgba(8, 10, 9, 0.85);        /* Modal overlays */
+  --color-success: #50c98e;
+  --color-error: #e85d5d;
 
-  /* SPACING SYSTEM - 8px BASE UNIT */
-  --space-1: 0.5rem;   /* 8px */
-  --space-2: 1rem;     /* 16px */
-  --space-3: 1.5rem;   /* 24px */
-  --space-4: 2rem;     /* 32px */
-  --space-5: 2.5rem;   /* 40px */
-  --space-6: 3rem;     /* 48px */
-  --space-8: 4rem;     /* 64px */
-  --space-10: 5rem;    /* 80px */
-  --space-12: 6rem;    /* 96px */
-  --space-16: 8rem;    /* 128px */
-  --space-20: 10rem;   /* 160px */
+  /* ═══════════════════════════════════════════════════════════
+     TYPOGRAPHY - Distinctive Font Stack
+     ═══════════════════════════════════════════════════════════ */
 
-  /* SECTION PADDING */
-  --section-padding-mobile: var(--space-8);    /* 64px top/bottom on mobile */
-  --section-padding-desktop: var(--space-12);  /* 96px top/bottom on desktop */
+  /* Font Families */
+  --font-display: 'Cormorant Garamond', Georgia, serif;  /* Elegant display headings */
+  --font-heading: 'Syne', sans-serif;                    /* Bold, modern headings */
+  --font-body: 'DM Sans', sans-serif;                    /* Clean, readable body */
 
-  /* CONTAINER WIDTHS */
+  /* Font Sizes - Fluid Scale */
+  --font-size-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.75rem);
+  --font-size-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.875rem);
+  --font-size-base: clamp(0.95rem, 0.9rem + 0.25vw, 1rem);
+  --font-size-lg: clamp(1.05rem, 1rem + 0.25vw, 1.125rem);
+  --font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --font-size-2xl: clamp(1.75rem, 1.5rem + 1.25vw, 2.25rem);
+  --font-size-3xl: clamp(2.25rem, 1.75rem + 2.5vw, 3.5rem);
+  --font-size-4xl: clamp(3rem, 2.25rem + 3.75vw, 5rem);
+  --font-size-5xl: clamp(3.5rem, 2.5rem + 5vw, 7rem);
+  --font-size-hero: clamp(4rem, 3rem + 6vw, 9rem);
+
+  /* Line Heights */
+  --line-height-tight: 1.1;
+  --line-height-snug: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+  --line-height-loose: 1.9;
+
+  /* Letter Spacing */
+  --letter-spacing-tighter: -0.04em;
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.05em;
+  --letter-spacing-wider: 0.1em;
+  --letter-spacing-widest: 0.2em;
+
+  /* ═══════════════════════════════════════════════════════════
+     SPACING - 8px Base Grid
+     ═══════════════════════════════════════════════════════════ */
+
+  --space-1: 0.5rem;     /* 8px */
+  --space-2: 1rem;       /* 16px */
+  --space-3: 1.5rem;     /* 24px */
+  --space-4: 2rem;       /* 32px */
+  --space-5: 2.5rem;     /* 40px */
+  --space-6: 3rem;       /* 48px */
+  --space-8: 4rem;       /* 64px */
+  --space-10: 5rem;      /* 80px */
+  --space-12: 6rem;      /* 96px */
+  --space-16: 8rem;      /* 128px */
+  --space-20: 10rem;     /* 160px */
+  --space-24: 12rem;     /* 192px */
+
+  /* Section Padding */
+  --section-padding-mobile: var(--space-10);
+  --section-padding-desktop: var(--space-16);
+
+  /* ═══════════════════════════════════════════════════════════
+     CONTAINER & LAYOUT
+     ═══════════════════════════════════════════════════════════ */
+
   --container-sm: 640px;
   --container-md: 768px;
   --container-lg: 1024px;
   --container-xl: 1280px;
-  --container-2xl: 1400px;  /* Max content width */
+  --container-2xl: 1440px;
+  --container-3xl: 1600px;
 
-  /* SHADOWS */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
-  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.7);
+  /* ═══════════════════════════════════════════════════════════
+     SHADOWS & DEPTH
+     ═══════════════════════════════════════════════════════════ */
 
-  /* TRANSITIONS */
-  --transition-fast: 150ms ease-in-out;
-  --transition-base: 250ms ease-in-out;
-  --transition-slow: 400ms ease-in-out;
-  --transition-smooth: 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 60px var(--color-accent-glow);
+  --shadow-emerald: 0 0 80px var(--color-emerald-glow);
+
+  /* ═══════════════════════════════════════════════════════════
+     TRANSITIONS & ANIMATIONS
+     ═══════════════════════════════════════════════════════════ */
+
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Easings */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* ═══════════════════════════════════════════════════════════
+     BORDERS & RADIUS
+     ═══════════════════════════════════════════════════════════ */
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* ═══════════════════════════════════════════════════════════
+     Z-INDEX SCALE
+     ═══════════════════════════════════════════════════════════ */
+
+  --z-below: -1;
+  --z-base: 0;
+  --z-above: 1;
+  --z-sticky: 100;
+  --z-fixed: 500;
+  --z-overlay: 1000;
+  --z-modal: 2000;
+  --z-cursor: 9999;
+  --z-grain: 10000;
 }
-

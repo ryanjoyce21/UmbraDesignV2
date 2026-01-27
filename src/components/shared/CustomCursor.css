@@ -1,46 +1,234 @@
-.custom-cursor {
+/* ═══════════════════════════════════════════════════════════
+   CUSTOM CURSOR - Premium Dual-Ring Design with Ambient Glow
+   ═══════════════════════════════════════════════════════════ */
+
+.cursor-container {
   position: fixed;
-  width: 12px;
-  height: 12px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cursor-container.visible {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CURSOR DOT (Inner, Solid)
+   ═══════════════════════════════════════════════════════════ */
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
   background-color: var(--color-accent);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 10000;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
-  mix-blend-mode: difference;
+  will-change: transform, width, height, background-color;
+  transition:
+    width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.2s ease,
+    opacity 0.2s ease;
 }
 
-.custom-cursor.hovering {
+.cursor-dot.hover {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-emerald);
+}
+
+.cursor-dot.action {
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-emerald);
+}
+
+.cursor-dot.expand {
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-text-primary);
+}
+
+.cursor-dot.click,
+.cursor-dot.hover-click,
+.cursor-dot.action-click,
+.cursor-dot.expand-click {
+  transform: scale(0.6);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CURSOR RING (Outer, Border)
+   ═══════════════════════════════════════════════════════════ */
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 40px;
   height: 40px;
-  background-color: rgba(45, 92, 74, 0.3);
-  border: 1px solid var(--color-accent);
+  border: 1px solid var(--color-border-hover);
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, width, height, border-color;
+  transition:
+    width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.2s ease,
+    border-width 0.2s ease,
+    opacity 0.2s ease;
+  opacity: 0.6;
 }
 
-/* Hide default cursor on interactive elements */
-@media (min-width: 769px) {
+.cursor-ring.hover {
+  width: 50px;
+  height: 50px;
+  border-color: var(--color-accent);
+  opacity: 0.8;
+}
+
+.cursor-ring.action {
+  width: 60px;
+  height: 60px;
+  border-color: var(--color-emerald);
+  border-width: 2px;
+  opacity: 1;
+}
+
+.cursor-ring.expand {
+  width: 80px;
+  height: 80px;
+  border-color: var(--color-accent);
+  opacity: 0.5;
+}
+
+.cursor-ring.click,
+.cursor-ring.hover-click,
+.cursor-ring.action-click,
+.cursor-ring.expand-click {
+  transform: scale(0.85);
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CURSOR GLOW (Ambient Background)
+   ═══════════════════════════════════════════════════════════ */
+
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(
+    circle,
+    var(--color-accent-glow) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, width, height, opacity;
+  transition:
+    width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s ease;
+  opacity: 0.15;
+  filter: blur(20px);
+}
+
+.cursor-glow.hover {
+  width: 180px;
+  height: 180px;
+  opacity: 0.25;
+}
+
+.cursor-glow.action {
+  width: 200px;
+  height: 200px;
+  opacity: 0.35;
+  background: radial-gradient(
+    circle,
+    rgba(80, 201, 142, 0.3) 0%,
+    transparent 70%
+  );
+}
+
+.cursor-glow.expand {
+  width: 250px;
+  height: 250px;
+  opacity: 0.2;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HIDE DEFAULT CURSOR
+   ═══════════════════════════════════════════════════════════ */
+
+@media (min-width: 769px) and (pointer: fine) {
+  html,
+  body {
+    cursor: none !important;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  .btn,
+  .project-card,
+  .service-card,
+  .trust-signal,
+  .nav-link,
+  .mobile-nav-link,
+  .header-cta,
+  .footer-cta-btn,
+  .footer-link,
+  .mobile-cta,
+  [role="button"] {
+    cursor: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE - Hide Custom Cursor Completely
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px), (pointer: coarse) {
+  .cursor-container {
+    display: none !important;
+  }
+
+  html,
   body,
   a,
   button,
+  input,
+  textarea,
+  select,
+  .btn,
   .project-card,
-  .btn {
-    cursor: none;
+  .service-card,
+  .trust-signal,
+  [role="button"] {
+    cursor: auto !important;
   }
 }
 
-/* Show default cursor on mobile */
-@media (max-width: 768px) {
-  .custom-cursor {
-    display: none;
-  }
-  
-  body,
-  a,
-  button,
-  .project-card,
-  .btn {
-    cursor: auto;
+/* ═══════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ═══════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot,
+  .cursor-ring,
+  .cursor-glow {
+    transition: none;
   }
 }
-
