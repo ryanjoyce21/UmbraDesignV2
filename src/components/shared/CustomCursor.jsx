@@ -14,6 +14,12 @@ const CustomCursor = () => {
   const dotPos = useRef({ x: 0, y: 0 })
   const ringPos = useRef({ x: 0, y: 0 })
   const animationRef = useRef(null)
+  const isVisibleRef = useRef(false)
+
+  // Sync isVisible state to ref
+  useEffect(() => {
+    isVisibleRef.current = isVisible
+  }, [isVisible])
 
   // Smooth cursor animation loop
   const animateCursor = useCallback(() => {
@@ -57,95 +63,93 @@ const CustomCursor = () => {
 
     const updatePosition = (e) => {
       mousePos.current = { x: e.clientX, y: e.clientY }
-      if (!isVisible) setIsVisible(true)
-    }
-
-    const handleMouseEnter = (e) => {
-      const target = e.target
-      if (target.closest('.btn, .header-cta, .footer-cta-btn, .mobile-cta')) {
-        setCursorState('action')
-      } else if (target.closest('a, button, .nav-link, .mobile-nav-link, .footer-link')) {
-        setCursorState('hover')
-      } else if (target.closest('.project-card, .service-card, .trust-signal')) {
-        setCursorState('expand')
-      } else {
-        setCursorState('hover')
+      if (!isVisibleRef.current) {
+        setIsVisible(true)
       }
     }
 
-    const handleMouseLeave = () => {
-      setCursorState('default')
+    const handleMouseOver = (e) => {
+      const target = e.target
+      if (target.closest('.btn, .header-cta, .footer-cta-btn, .mobile-cta')) {
+        setCursorState('action')
+      } else if (target.closest('.project-card, .service-card, .trust-signal')) {
+        setCursorState('expand')
+      } else if (target.closest('a, button, .nav-link, .mobile-nav-link, .footer-link')) {
+        setCursorState('hover')
+      } else {
+        setCursorState('default')
+      }
+    }
+
+    const handleMouseOut = (e) => {
+      const relatedTarget = e.relatedTarget
+      if (!relatedTarget || !relatedTarget.closest) {
+        setCursorState('default')
+        return
+      }
+
+      // Don't reset if moving to another interactive element
+      const isMovingToInteractive = relatedTarget.closest(
+        '.btn, .header-cta, .footer-cta-btn, .mobile-cta, .project-card, .service-card, .trust-signal, a, button, .nav-link, .mobile-nav-link, .footer-link'
+      )
+
+      if (!isMovingToInteractive) {
+        setCursorState('default')
+      }
     }
 
     const handleMouseDown = () => {
-      setCursorState((prev) => (prev === 'default' ? 'click' : prev + '-click'))
+      setCursorState((prev) => {
+        if (prev.endsWith('-click') || prev === 'click') {
+          return prev
+        }
+        return prev === 'default' ? 'click' : prev + '-click'
+      })
     }
 
     const handleMouseUp = () => {
-      setCursorState((prev) => prev.replace('-click', ''))
+      setCursorState((prev) => {
+        if (prev === 'click') {
+          return 'default'
+        }
+        return prev.replace(/-click$/, '')
+      })
     }
 
-    const handleMouseOut = () => {
+    const handleDocMouseOut = () => {
       setIsVisible(false)
     }
 
-    const handleMouseOver = () => {
+    const handleDocMouseOver = () => {
       setIsVisible(true)
     }
 
     window.addEventListener('mousemove', updatePosition)
     window.addEventListener('mousedown', handleMouseDown)
     window.addEventListener('mouseup', handleMouseUp)
-    document.addEventListener('mouseout', handleMouseOut)
+    document.addEventListener('mouseout', handleDocMouseOut)
+    document.addEventListener('mouseover', handleDocMouseOver)
     document.addEventListener('mouseover', handleMouseOver)
+    document.addEventListener('mouseout', handleMouseOut)
 
     // Start animation loop
     animationRef.current = requestAnimationFrame(animateCursor)
-
-    // Use MutationObserver to handle dynamically added elements
-    const addListeners = () => {
-      const interactiveElements = document.querySelectorAll(
-        'a, button, .btn, .project-card, .service-card, .trust-signal, .nav-link, .mobile-nav-link, .header-cta, .footer-cta-btn, .footer-link, .mobile-cta'
-      )
-      interactiveElements.forEach((el) => {
-        el.addEventListener('mouseenter', handleMouseEnter)
-        el.addEventListener('mouseleave', handleMouseLeave)
-      })
-      return interactiveElements
-    }
-
-    let elements = addListeners()
-
-    const observer = new MutationObserver(() => {
-      elements.forEach((el) => {
-        el.removeEventListener('mouseenter', handleMouseEnter)
-        el.removeEventListener('mouseleave', handleMouseLeave)
-      })
-      elements = addListeners()
-    })
-
-    observer.observe(document.body, { childList: true, subtree: true })
 
     return () => {
       window.removeEventListener('mousemove', updatePosition)
       window.removeEventListener('resize', checkMobile)
       window.removeEventListener('mousedown', handleMouseDown)
       window.removeEventListener('mouseup', handleMouseUp)
-      document.removeEventListener('mouseout', handleMouseOut)
+      document.removeEventListener('mouseout', handleDocMouseOut)
+      document.removeEventListener('mouseover', handleDocMouseOver)
       document.removeEventListener('mouseover', handleMouseOver)
+      document.removeEventListener('mouseout', handleMouseOut)
 
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current)
       }
-
-      elements.forEach((el) => {
-        el.removeEventListener('mouseenter', handleMouseEnter)
-        el.removeEventListener('mouseleave', handleMouseLeave)
-      })
-
-      observer.disconnect()
     }
-  }, [isMobile, isVisible, animateCursor])
+  }, [isMobile, animateCursor])
 
   if (isMobile) return null
 

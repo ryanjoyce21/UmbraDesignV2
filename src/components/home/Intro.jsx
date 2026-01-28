@@ -10,12 +10,12 @@ const Intro = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
-    const scrollTriggers = []
+    const tweens = []
 
     if (contentRef.current) {
       const elements = contentRef.current.querySelectorAll('.intro-animate')
       elements.forEach((el, index) => {
-        const trigger = gsap.fromTo(
+        const tween = gsap.fromTo(
           el,
           { opacity: 0, y: 50 },
           {
@@ -31,12 +31,12 @@ const Intro = () => {
             }
           }
         )
-        scrollTriggers.push(trigger.scrollTrigger)
+        tweens.push(tween)
       })
     }
 
     return () => {
-      scrollTriggers.forEach(trigger => trigger && trigger.kill())
+      tweens.forEach(tween => tween && tween.kill())
     }
   }, [])
 

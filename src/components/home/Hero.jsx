@@ -19,9 +19,10 @@ const Hero = () => {
     gsap.registerPlugin(ScrollTrigger)
 
     const scrollTriggers = []
+    let tl = null
 
     // Staggered entrance animation
-    const tl = gsap.timeline({ delay: 0.3 })
+    tl = gsap.timeline({ delay: 0.3 })
 
     // Animate first line
     tl.fromTo(
@@ -114,6 +115,9 @@ const Hero = () => {
     // Cleanup
     const heroElement = heroRef.current
     return () => {
+      if (tl) {
+        tl.kill()
+      }
       scrollTriggers.forEach((trigger) => {
         if (trigger) trigger.kill()
       })

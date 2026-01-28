@@ -337,6 +337,20 @@
   color: var(--color-accent);
 }
 
+.scroll-indicator:focus {
+  outline: none;
+}
+
+.scroll-indicator:focus-visible {
+  color: var(--color-accent);
+}
+
+.scroll-indicator:focus-visible .scroll-indicator-icon {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 10px var(--color-accent-glow);
+}
+
 .scroll-indicator-text {
   font-family: var(--font-body);
   font-size: var(--font-size-xs);

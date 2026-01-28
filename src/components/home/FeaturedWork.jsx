@@ -97,6 +97,17 @@ const FeaturedWork = () => {
                 onClick={() => setSelectedProject(project)}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
+                onFocus={() => setHoveredIndex(index)}
+                onBlur={() => setHoveredIndex(null)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    setSelectedProject(project)
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`View project: ${project.title}`}
               >
                 {/* Image Container */}
                 <div className="project-image-wrapper">
