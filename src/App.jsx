@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import { initSmoothScroll, getLenis } from './utils/smoothScroll'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
@@ -9,6 +10,7 @@ import Home from './pages/Home'
 import Work from './pages/Work'
 import About from './pages/About'
 import Contact from './pages/Contact'
+
 
 function App() {
   const location = useLocation()
@@ -74,6 +76,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <Analytics />
     </>
   )
 }
