@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Palette, ShoppingCart, Calendar, FileText, ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import './Services.css'
 
 const Services = () => {
@@ -10,28 +10,24 @@ const Services = () => {
 
   const services = [
     {
-      icon: Palette,
       number: '01',
       title: 'Web Design',
       description: 'Beautiful, modern designs that reflect your brand and engage your audience with lasting impressions.',
       features: ['Custom Design', 'Responsive', 'Brand Identity']
     },
     {
-      icon: ShoppingCart,
       number: '02',
       title: 'E-Commerce',
       description: 'Full-featured online stores with secure payment processing and seamless inventory management.',
       features: ['Payment Integration', 'Inventory', 'Analytics']
     },
     {
-      icon: Calendar,
       number: '03',
       title: 'Booking Systems',
       description: 'Streamlined booking platforms that make scheduling effortless for you and your customers.',
       features: ['Calendars', 'Reminders', 'Payments']
     },
     {
-      icon: FileText,
       number: '04',
       title: 'Form Systems',
       description: 'Intelligent form submission systems that capture and organize customer data seamlessly.',
@@ -119,7 +115,6 @@ const Services = () => {
 
         <div className="services-grid" ref={servicesRef}>
           {services.map((service, index) => {
-            const IconComponent = service.icon
             return (
               <article key={index} className="service-card">
                 <div className="service-card-inner">
@@ -129,9 +124,6 @@ const Services = () => {
                   {/* Header */}
                   <div className="service-header">
                     <span className="service-number">{service.number}</span>
-                    <div className="service-icon">
-                      <IconComponent size={24} strokeWidth={1.5} />
-                    </div>
                   </div>
 
                   {/* Content */}

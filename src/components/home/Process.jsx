@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Search, PenTool, Code, Rocket } from 'lucide-react'
 import './Process.css'
 
 const Process = () => {
@@ -11,25 +10,21 @@ const Process = () => {
 
   const steps = [
     {
-      icon: Search,
       number: '01',
       title: 'Discovery',
       description: 'We dive deep into understanding your business, goals, target audience, and competitive landscape.',
     },
     {
-      icon: PenTool,
       number: '02',
       title: 'Design',
       description: 'Our design process creates a visual identity that resonates with your brand and captivates your audience.',
     },
     {
-      icon: Code,
       number: '03',
       title: 'Development',
       description: 'We build your site using modern technologies, ensuring performance, accessibility, and scalability.',
     },
     {
-      icon: Rocket,
       number: '04',
       title: 'Launch',
       description: 'We ensure everything is perfect before going live and provide ongoing support for continued success.',
@@ -131,18 +126,12 @@ const Process = () => {
 
           <div className="process-steps" ref={processRef}>
             {steps.map((step, index) => {
-              const IconComponent = step.icon
               return (
                 <div key={index} className="process-step">
                   {/* Step Connector Dot */}
                   <div className="step-connector">
                     <div className="step-dot" />
                     <div className="step-dot-ring" />
-                  </div>
-
-                  {/* Icon */}
-                  <div className="process-icon">
-                    <IconComponent size={24} strokeWidth={1.5} />
                   </div>
 
                   {/* Number */}
