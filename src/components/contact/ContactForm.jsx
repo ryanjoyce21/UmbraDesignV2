@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import emailjs from '@emailjs/browser'
 import './ContactForm.css'
 
 const ContactForm = () => {
@@ -62,25 +61,28 @@ const ContactForm = () => {
     setSubmitStatus(null)
 
     try {
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error('EmailJS configuration is missing. Please check your environment variables.')
-      }
-
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
           phone: formData.phone,
           message: formData.message,
-        },
-        publicKey
-      )
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        // Handle validation errors from server
+        if (data.details) {
+          setErrors(data.details)
+        }
+        throw new Error(data.error || 'Failed to send message')
+      }
 
       setSubmitStatus('success')
       setFormData({
@@ -90,7 +92,7 @@ const ContactForm = () => {
         message: '',
       })
     } catch (error) {
-      console.error('EmailJS error:', error)
+      console.error('Contact form error:', error)
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
