@@ -33,7 +33,7 @@ const Contact = () => {
               <div className="contact-details">
                 <div className="contact-detail">
                   <strong>Email:</strong>
-                  <a href="mailto:hello@umbradesign.ie">hello@umbradesign.ie</a>
+                  <a href="mailto:ryan@umbradesign.ie">ryan@umbradesign.ie</a>
                 </div>
                 <div className="contact-detail">
                   <strong>Location:</strong>

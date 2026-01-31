@@ -41,9 +41,9 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div className="footer-contact">
-              <a href="mailto:hello@umbradesign.ie" className="footer-contact-item">
+              <a href="mailto:ryan@umbradesign.ie" className="footer-contact-item">
                 <Mail size={16} strokeWidth={1.5} />
-                <span>hello@umbradesign.ie</span>
+                <span>ryan@umbradesign.ie</span>
               </a>
               <div className="footer-contact-item">
                 <MapPin size={16} strokeWidth={1.5} />

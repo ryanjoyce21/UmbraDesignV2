@@ -198,7 +198,7 @@ const ContactForm = () => {
 
       {submitStatus === 'error' && (
         <div className="form-message error" role="alert">
-          Sorry, there was an error sending your message. Please try again or contact us directly at hello@umbradesign.ie
+          Sorry, there was an error sending your message. Please try again or contact us directly at ryan@umbradesign.ie
         </div>
       )}
 

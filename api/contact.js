@@ -104,6 +104,8 @@ function sanitize(text) {
 }
 
 export default async function handler(req, res) {
+  console.log('Contact API called:', req.method);
+
   // Only allow POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -135,10 +137,11 @@ export default async function handler(req, res) {
 
     // Check for Resend API key
     const resendApiKey = process.env.RESEND_API_KEY;
+    console.log('RESEND_API_KEY exists:', !!resendApiKey);
     if (!resendApiKey) {
       console.error('RESEND_API_KEY environment variable is not set');
       return res.status(500).json({
-        error: 'Email service is not configured. Please contact us directly at hello@umbradesign.ie'
+        error: 'Email service is not configured. Please contact us directly at ryan@umbradesign.ie'
       });
     }
 
@@ -207,11 +210,12 @@ Reply directly to this email to respond to ${safeName}.
     });
 
     if (error) {
-      console.error('Resend error:', error);
+      console.error('Resend error:', JSON.stringify(error, null, 2));
       return res.status(500).json({
-        error: 'Failed to send email. Please try again or contact us directly at hello@umbradesign.ie'
+        error: 'Failed to send email. Please try again or contact us directly at ryan@umbradesign.ie'
       });
     }
+    console.log('Email sent successfully:', data?.id);
 
     // Success
     return res.status(200).json({
@@ -223,7 +227,7 @@ Reply directly to this email to respond to ${safeName}.
   } catch (error) {
     console.error('Contact form error:', error);
     return res.status(500).json({
-      error: 'An unexpected error occurred. Please try again or contact us directly at hello@umbradesign.ie'
+      error: 'An unexpected error occurred. Please try again or contact us directly at ryan@umbradesign.ie'
     });
   }
 }
