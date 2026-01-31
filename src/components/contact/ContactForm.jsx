@@ -74,11 +74,18 @@ const ContactForm = () => {
         }),
       })
 
-      const data = await response.json()
+      // Safely parse JSON response with fallback for non-JSON errors
+      let data
+      try {
+        data = await response.json()
+      } catch {
+        // Response was not valid JSON (e.g., server error page)
+        throw new Error(`Server error (${response.status}). Please try again.`)
+      }
 
       if (!response.ok) {
         // Handle validation errors from server
-        if (data.details) {
+        if (data.details && typeof data.details === 'object') {
           setErrors(data.details)
         }
         throw new Error(data.error || 'Failed to send message')

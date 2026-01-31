@@ -4,6 +4,24 @@ import { Resend } from 'resend';
 const rateLimitMap = new Map();
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
 const MAX_REQUESTS = 3; // 3 requests per minute per IP
+const CLEANUP_INTERVAL = 5 * 60 * 1000; // Cleanup every 5 minutes
+
+// Cleanup stale entries to prevent unbounded memory growth
+function cleanupStaleEntries() {
+  const now = Date.now();
+  for (const [ip, record] of rateLimitMap) {
+    if (now - record.firstRequest > RATE_LIMIT_WINDOW) {
+      rateLimitMap.delete(ip);
+    }
+  }
+}
+
+// Start periodic cleanup when module loads
+const cleanupTimer = setInterval(cleanupStaleEntries, CLEANUP_INTERVAL);
+// Prevent timer from keeping Node.js process alive
+if (cleanupTimer.unref) {
+  cleanupTimer.unref();
+}
 
 function isRateLimited(ip) {
   const now = Date.now();
@@ -129,7 +147,8 @@ export default async function handler(req, res) {
 
     // Sanitize inputs for email content
     const safeName = sanitize(name.trim());
-    const safeEmail = email.trim().toLowerCase();
+    const rawEmail = email.trim().toLowerCase(); // For replyTo header (must be valid email)
+    const safeEmail = sanitize(rawEmail); // For HTML interpolation
     const safePhone = sanitize(phone?.trim() || 'Not provided');
     const safeMessage = sanitize(message.trim());
 
@@ -137,7 +156,7 @@ export default async function handler(req, res) {
     const { data, error } = await resend.emails.send({
       from: 'Umbra Design <contact@umbradesign.ie>',
       to: ['ryan@umbradesign.ie'],
-      replyTo: safeEmail,
+      replyTo: rawEmail,
       subject: `New Contact Form Submission from ${safeName}`,
       html: `
         <!DOCTYPE html>
