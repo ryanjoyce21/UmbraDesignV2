@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import { initSmoothScroll, getLenis } from './utils/smoothScroll'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
