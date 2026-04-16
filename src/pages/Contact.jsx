@@ -1,17 +1,39 @@
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/shared/SEO'
 import ContactForm from '../components/contact/ContactForm'
 import './Contact.css'
+
+const contactJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact Umbra Design',
+  url: 'https://umbradesign.ie/contact',
+  description:
+    'Get in touch with Umbra Design to discuss your web design project.',
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'Umbra Design',
+    email: 'ryan@umbradesign.ie',
+    url: 'https://umbradesign.ie',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'ryan@umbradesign.ie',
+      contactType: 'customer service',
+      areaServed: 'IE',
+      availableLanguage: ['English'],
+    },
+  },
+}
 
 const Contact = () => {
   return (
     <>
-      <Helmet>
-        <title>Contact Us - Umbra Design</title>
-        <meta
-          name="description"
-          content="Get in touch with Umbra Design to discuss your web design project."
-        />
-      </Helmet>
+      <SEO
+        title="Contact Us - Umbra Design"
+        description="Get in touch with Umbra Design to discuss your web design project. Based in Dublin, working with businesses across Ireland."
+        path="/contact"
+        ogType="website"
+        jsonLd={contactJsonLd}
+      />
       <section className="contact-hero section">
         <div className="container">
           <h1 className="contact-hero-title">Get in Touch</h1>
