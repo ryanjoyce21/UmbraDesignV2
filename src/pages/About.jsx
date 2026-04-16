@@ -9,13 +9,13 @@ const aboutJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
   name: 'About Umbra Design',
-  url: 'https://umbradesign.ie/about',
+  url: 'https://www.umbradesign.ie/about',
   description:
     'Learn about Umbra Design — a Dublin-based web design studio creating premium websites for Irish businesses.',
   mainEntity: {
     '@type': 'Organization',
     name: 'Umbra Design',
-    url: 'https://umbradesign.ie',
+    url: 'https://www.umbradesign.ie',
     email: 'ryan@umbradesign.ie',
     description:
       'Premium web design and development for Irish businesses.',

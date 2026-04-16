@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 
-const SITE_URL = 'https://umbradesign.ie'
-const DEFAULT_OG_IMAGE = 'https://umbradesign.ie/og-image.jpg'
+const SITE_URL = 'https://www.umbradesign.ie'
+const DEFAULT_OG_IMAGE = 'https://www.umbradesign.ie/og-image.jpg'
 const SITE_NAME = 'Umbra Design'
 
 /**

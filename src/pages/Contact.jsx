@@ -6,14 +6,14 @@ const contactJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
   name: 'Contact Umbra Design',
-  url: 'https://umbradesign.ie/contact',
+  url: 'https://www.umbradesign.ie/contact',
   description:
     'Get in touch with Umbra Design to discuss your web design project.',
   mainEntity: {
     '@type': 'Organization',
     name: 'Umbra Design',
     email: 'ryan@umbradesign.ie',
-    url: 'https://umbradesign.ie',
+    url: 'https://www.umbradesign.ie',
     contactPoint: {
       '@type': 'ContactPoint',
       email: 'ryan@umbradesign.ie',

@@ -11,8 +11,8 @@ const homeJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
   name: 'Umbra Design',
-  url: 'https://umbradesign.ie',
-  image: 'https://umbradesign.ie/og-image.jpg',
+  url: 'https://www.umbradesign.ie',
+  image: 'https://www.umbradesign.ie/og-image.jpg',
   description:
     'Premium web design and development for Irish businesses. Fast turnaround, proven results.',
   email: 'ryan@umbradesign.ie',

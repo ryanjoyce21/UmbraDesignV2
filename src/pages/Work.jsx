@@ -29,13 +29,13 @@ const workJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'Our Work - Umbra Design',
-  url: 'https://umbradesign.ie/work',
+  url: 'https://www.umbradesign.ie/work',
   description:
     'Selected projects from Umbra Design — e-commerce platforms, booking systems, brochure sites, and web applications for Irish businesses.',
   isPartOf: {
     '@type': 'WebSite',
     name: 'Umbra Design',
-    url: 'https://umbradesign.ie',
+    url: 'https://www.umbradesign.ie',
   },
   mainEntity: {
     '@type': 'ItemList',
