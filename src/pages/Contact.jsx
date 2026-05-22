@@ -29,7 +29,7 @@ const Contact = () => {
     <>
       <SEO
         title="Contact Us - Umbra Design"
-        description="Get in touch with Umbra Design to discuss your web design project. Based in Dublin, working with businesses across Ireland."
+        description="Get in touch with Umbra Design to discuss your web design project. Based in Cork, working with businesses across Ireland."
         path="/contact"
         ogType="website"
         jsonLd={contactJsonLd}

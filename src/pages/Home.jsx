@@ -19,7 +19,7 @@ const homeJsonLd = {
   priceRange: '€€',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Dublin',
+    addressLocality: 'Cork',
     addressCountry: 'IE',
   },
   areaServed: { '@type': 'Country', name: 'Ireland' },

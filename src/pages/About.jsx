@@ -11,7 +11,7 @@ const aboutJsonLd = {
   name: 'About Umbra Design',
   url: 'https://www.umbradesign.ie/about',
   description:
-    'Learn about Umbra Design — a Dublin-based web design studio creating premium websites for Irish businesses.',
+    'Learn about Umbra Design — a Cork-based web design studio creating premium websites for Irish businesses.',
   mainEntity: {
     '@type': 'Organization',
     name: 'Umbra Design',
@@ -21,7 +21,7 @@ const aboutJsonLd = {
       'Premium web design and development for Irish businesses.',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Dublin',
+      addressLocality: 'Cork',
       addressCountry: 'IE',
     },
     areaServed: { '@type': 'Country', name: 'Ireland' },
@@ -72,7 +72,7 @@ const About = () => {
     <>
       <SEO
         title="About Us - Umbra Design"
-        description="Learn about Umbra Design — a Dublin-based web design studio creating premium websites for Irish businesses. Transparent process, fast turnaround, proven results."
+        description="Learn about Umbra Design — a Cork-based web design studio creating premium websites for Irish businesses. Transparent process, fast turnaround, proven results."
         path="/about"
         jsonLd={aboutJsonLd}
       />
@@ -80,7 +80,7 @@ const About = () => {
         <div className="container">
           <h1 className="about-hero-title">About Umbra Design</h1>
           <p className="about-hero-text">
-            We're a Dublin-based web design studio focused on delivering premium results for Irish businesses.
+            We're a Cork-based web design studio focused on delivering premium results for Irish businesses.
           </p>
         </div>
       </section>
